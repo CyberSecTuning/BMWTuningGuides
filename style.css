@@ -1,0 +1,77 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #121212;
+}
+
+.banner {
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+    display: block; /* Center the image */
+    margin: 0 auto; /* Center horizontally */
+}
+.banner-container {
+    position: relative; /* Enables positioning of child elements like the text */
+}
+
+.banner {
+    width: 100%; /* Adjust banner size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.welcome-text {
+    position: absolute; /* Allows precise placement */
+    top: 10%; /* Adjust the vertical position (10% from the top of the container) */
+    left: 5%; /* Adjust the horizontal position (5% from the left of the container) */
+    color: white; /* Ensure the text is visible on the banner */
+    font-size: 2rem; /* Adjust font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a shadow for better contrast */
+}
+.navbar {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #0078d7;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+}

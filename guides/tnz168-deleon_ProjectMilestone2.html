@@ -1,0 +1,557 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#467886;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoChpDefault
+	{font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#467886" vlink="#96607D" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal> <b>Frankie Deleon </b></p>
+
+
+<p class=MsoNormal><b>IS-4543-ON1 </b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>Milestone 2-
+Coding with NCS Expert</b></p>
+
+<p class=MsoNormal><b>Idea #2</b>: Recode BMW car data to enable/disable
+different features. It can also expand further to create an environment for
+engine tuning. </p>
+
+<p class=MsoNormal><b>Milestone #2:</b> Enable/Disable factory Options as
+needed for educational/recreational purposes. </p>
+
+<p class=MsoNormal><b>Summary of Activities:</b></p>
+
+<p class=MsoNormal style='text-indent:.5in'>In our previous milestone, we
+created an environment for tuning and diagnostics by installing essential tools
+such as INPA, NCSExpert, Ms4xFlasher, and TunerPro. Now, we will delve into BMW
+coding using NCSExpert, a straightforward program that enables reading, writing,
+and modifying configuration files in the vehicle’s electronic control unit
+(ECU) and its various modules. When you read an ECU using NCSExpert, it
+extracts a configuration file called FSW_PSW.TRC, a trace file that contains
+the current coding settings for each scanned module. Examples of these modules
+include KOMBI (Instrument Cluster), CAS (Car Access System), and MRS (Multiple
+Restraint System), among others.</p>
+
+<p class=MsoNormal>These modules can be accessed through NCSExpert, which
+outputs the trace file used to modify vehicle functions. For instance, you can
+add a digital speedometer to your instrument cluster, enable an upgraded
+comfort access system on a base model, or remove airbag settings in a racecar
+that no longer requires specific airbags. All these modifications are
+legitimate uses of NCSExpert. The only drawback is that the information read
+from a BMW’s ECU is written in German. Thus, prior knowledge of the specific
+parameters or the use of another tool, such as NCS Dummy, is helpful.</p>
+
+<p class=MsoNormal>Once the preferred settings have been changed in the
+module's code, you will save the file and overwrite the .trc file into an
+FSW_PSW.MAN file, which will then be exported back to NCSExpert for coding the
+vehicle. While these programs are normally used for recreational purposes, such
+as enabling features in your vehicle, there are concerns related to criminals
+using these modules to steal cars from dealerships. Once a criminal has access
+to a vehicle they are targeting, all they need to do is get a complete scan of
+the vehicles ECU, then come back with a coded key specific to the vehicle’s
+vin-number and steal the vehicle. This is becoming a serious concern in the car
+industry with new software being released completely streamlining this process
+using tools that can be purchased on amazon to efficiently clone keys to
+specific vin-numbers. This issue highlights the growing cybersecurity risks in
+modern vehicles, particularly as more software-based systems are implemented.
+It underscores the importance of securing access to diagnostic ports and
+ensuring that the software tools used for vehicle maintenance and coding are
+properly safeguarded while still allowing public use.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Description of Learning Completed:</b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Open NCS Expert tool located in the BMW standard tools suite
+installed and configured in the previous milestones.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=180 height=96
+src="tnz168-deleon_ProjectMilestone2_files/image001.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Load the preconfigured profile to make coding easier by
+simplifying the coding process.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in;
+line-height:107%'><span style='font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span>File &gt; load
+profile &gt; Revtor’s NCS Expert Profile</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='margin-left:1.0in;
+text-align:center;line-height:107%'><img width=417 height=304
+src="tnz168-deleon_ProjectMilestone2_files/image002.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Start (F1)- Make sure K-DCAN cable discussed in previous milestone
+is plugged into the vehicle and computer and set ignition in car to position 2
+right before actually turning on the vehicle to begin reading the ECU.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Select Chassis (F3) &gt; Select vehicle, for this example I am
+using a 2002 e46 BMW 330i. </p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=398 height=289
+src="tnz168-deleon_ProjectMilestone2_files/image003.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Select ECU- for this example we will be enabling the European
+standard Hazard lights. These lights give a slightly cooler aesthetic with a
+faster tick speed within the hazard lights. This process is apart of the ALSZ
+module of the e46 MS43 ECU.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=347 height=318
+src="tnz168-deleon_ProjectMilestone2_files/image004.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=414 height=306
+src="tnz168-deleon_ProjectMilestone2_files/image005.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Back (F6)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Process ECU &gt; Select ECU Module</p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>By default, it
+will read all the ECU modules, which is not ideal. We will select the correct
+module housing the code we wish to manipulate.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=466 height=344
+src="tnz168-deleon_ProjectMilestone2_files/image006.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Change the job to Reading coding data (CODIERDATEN_LESEN) in
+german, this process extracts the current coding data associated with the
+selected ECU and stores the information in the trace file for editing. </p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=374 height=255
+src="tnz168-deleon_ProjectMilestone2_files/image007.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=491 height=219
+src="tnz168-deleon_ProjectMilestone2_files/image008.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Select Execute job.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+text-indent:-.25in;line-height:107%'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><img width=313 height=287
+src="tnz168-deleon_ProjectMilestone2_files/image009.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=244 height=247
+src="tnz168-deleon_ProjectMilestone2_files/image010.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle><b><u>Directory Search</u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Navigate to WORK folder in C: drive, C:\NCSEXPER\WORK to locate
+the trace file which we will be editing its code. </p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+text-indent:-.25in;line-height:107%'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=399 height=52
+src="tnz168-deleon_ProjectMilestone2_files/image011.png"
+alt="A screen shot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=604 height=193
+src="tnz168-deleon_ProjectMilestone2_files/image012.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Open FSW_PSW.TRC and locate the lines of code you wish to
+manipulate.  (open trace file to edit and man file to write to ecu)</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=368 height=299
+src="tnz168-deleon_ProjectMilestone2_files/image013.png"
+alt="A screenshot of a computer program&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=171 height=409
+src="tnz168-deleon_ProjectMilestone2_files/image014.png"
+alt="A screen shot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Use CTRL+F to find option to code.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=268 height=195
+src="tnz168-deleon_ProjectMilestone2_files/image015.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Change option from enabled (aktiv) to not enabled (nicht_aktiv)
+or vice-versa as needed.  To enable euro hazard lights the command <i><span
+style='background:lightgrey'>BLINKIMPULS_WARNBLK</span></i> needs to be set to <i><span
+style='background:lightgrey'>wer_04</span></i>, where it was originally set to <i><span
+style='background:lightgrey'>02</span>.</i></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=202 height=50
+src="tnz168-deleon_ProjectMilestone2_files/image016.png"
+alt="A black background with white text&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>Since the codes
+are in German, there are many conversion charts online that show the meaning to
+each code and how to manipulate them.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=429 height=247
+src="tnz168-deleon_ProjectMilestone2_files/image017.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>File &gt; Save as &gt;Save as type: All files &gt; Overwrite .MAN
+file. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>Once all the
+coding options have been configured to your liking, we then save the updated
+.TRC file and overwrite it as the <i><span style='background:lightgrey'>FSW_PSW.MAN</span></i>
+file</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=220 height=146
+src="tnz168-deleon_ProjectMilestone2_files/image018.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center'><img
+width=234 height=82 src="tnz168-deleon_ProjectMilestone2_files/image019.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center'><img
+width=523 height=43 src="tnz168-deleon_ProjectMilestone2_files/image020.png"></p>
+
+<p class=MsoListParagraphCxSpMiddle>To confirm the file is correct, you will
+see the .MAN file date modified section has been updated.</p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle><b><u>NCSDummy option</u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>This same process can be enumerated in English using NCSDummy
+where you do not need to source an external conversion table since the language
+is converted using the NCSDummy application.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Similar to NCSExpert, Select Chassis. In this case I am using an
+e46. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Select trace file- Browse&gt; Select FSW_FSW.TRC Trace File
+located at C:\NCSEXPER\WORK</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=312 height=300
+src="tnz168-deleon_ProjectMilestone2_files/image021.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Select Module, in this case since we already scanned the module
+using NCSExpert, we can select filter by current trace file</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=316 height=114
+src="tnz168-deleon_ProjectMilestone2_files/image022.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Locate coding options wanting to edit, you can scroll and view or
+filter by the name “hazard” or “blinkimpuls” for the German name.</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=494 height=58
+src="tnz168-deleon_ProjectMilestone2_files/image023.png"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Simply enable options wanted. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'> In this case we
+set Hazard lights flashing to value 4.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Export FSW/PSW &gt; Export FSW_PSW.MAN</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center'><img
+width=351 height=99 src="tnz168-deleon_ProjectMilestone2_files/image024.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center'><b><u><span
+ style='text-decoration:none'>&nbsp;</span></u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle><b><u>Back to NCS Expert.</u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle><b><u><span style='text-decoration:none'>&nbsp;</span></u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Change Job to coding in NCS. (SG_CODIEREN).</p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=388 height=206
+src="tnz168-deleon_ProjectMilestone2_files/image025.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Execute job (F3). </p>
+
+<p class=MsoListParagraphCxSpMiddle align=center style='text-align:center;
+line-height:107%'><img width=116 height=65
+src="tnz168-deleon_ProjectMilestone2_files/image026.png"
+alt="A screenshot of a phone&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;line-height:107%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Once “coding ended” is shown job is complete and the vehicles
+settings have been updated via coding, you can take the key out of the ignition
+then reinsert the key to restart the ecu.</p>
+
+<p class=MsoListParagraphCxSpLast align=center style='text-align:center;
+line-height:107%'><img width=283 height=245 id="Picture 1"
+src="tnz168-deleon_ProjectMilestone2_files/image027.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal style='line-height:107%'>&nbsp;</p>
+
+<p class=MsoNormal style='line-height:107%'>Here is a YouTube video of before
+and after the hazard lights coding using NCSExpert. </p>
+<!-- YouTube Video Section -->
+        <div class="video-section">
+            <h2>BMW Tuning Video Tutorial</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6vE-_V1nmqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+<p class=MsoNormal><a href="https://youtu.be/6vE-_V1nmqQ"><b>https://youtu.be/6vE-_V1nmqQ</b></a><b>
+</b></p>
+
+<p class=MsoNormal>While this was just a simple example of coding a single
+vehicle option, coding with NCSExpert provides a powerful tool for customizing
+and fine-tuning your BMW’s settings to match your preferences. This method of
+coding can be used to manipulate nearly any vehicle option you can think of in
+your car. However, understanding how to manipulate a vehicle’s ECU opens a
+concerning vulnerability—criminals today are exploiting these systems in
+alarming ways. They can walk into car dealerships unnoticed, in the middle of
+the night or even during broad daylight, and scan vehicles that are often left unlocked
+for customers to view or even breaking in and quickly gaining access. By
+gaining access to the ECU and collecting the VIN number, criminals can clone
+keys using various software and return later to steal the vehicles at their convenience.</p>
+
+<p class=MsoNormal>In some cases, poor security practices have allowed
+criminals to steal brand new cars from dealerships in under two minutes. This
+highlights a significant gap in the automotive industry's security posture,
+revealing that there is substantial room for improvement. Strengthening the
+protection of ECU data and securing access to vehicles, both physically and
+digitally, is crucial to prevent this form of high-tech car theft while still
+allowing for public access and routine maintenance. Implementing robust
+encryption, better key management systems, and secure access protocols will
+help strike a balance between security and usability, ensuring that vehicles
+remain both functional for repairs and protected considering the software and
+hardware widely available throughout the internet to streamline key cloning.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'>References</p>
+
+<p class=MsoNormal>Scribd. (n.d.). <i>E46 NCS coding list fsw - PSW</i>.
+Scribd. <a
+href="https://www.scribd.com/doc/300308710/e46-Ncs-Coding-List-FSW-PSW">https://www.scribd.com/doc/300308710/e46-Ncs-Coding-List-FSW-PSW</a>
+</p>
+
+<p class=MsoNormal>Admin. (2023, March 29). <i>Expert.com</i>. NCS.
+https://ncs-expert.com/ </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

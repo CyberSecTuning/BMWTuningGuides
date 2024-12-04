@@ -1,0 +1,1111 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#467886;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+.MsoChpDefault
+	{font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#467886" vlink="#96607D" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><a name="_Hlk182858389"><b>Frankie Deleon </b></a></p>
+
+
+
+<p class=MsoNormal><b>IS-4543-ON1 </b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>Milestone 4-
+Flashing Firmware</b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>Idea #2</b>: Recode BMW car data to enable/disable
+different features. It can also expand further to create an environment for
+engine tuning. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Milestone #4: </b>Reflash the vehicle with new firmware
+and tune updated firmware files.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Summary of Activities:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To begin tuning your BMW, you’ll first need to create a
+backup of your current ECU data. This can be done using JMGarage to read the
+ECU in boot mode.</p>
+
+<p class=MsoNormal>Entering boot mode requires disassembling the ECU and
+shorting pin 104 of the C167 processor, which enables boot mode and allows the
+ECU to be read. To supply power and enable data communication, pins x60001 and
+x60004 need to be connected, providing 12V power and activating the K-Line for
+reading data. If the process is performed in the vehicle, the first and fourth
+plugs from the ECU harness must be connected to the exposed ECU. While these
+harness connections also power the CAN-bus low and high auxiliary functions,
+these are not needed during the boot mode read.</p>
+
+<p class=MsoNormal>Once a complete clone of the ECU data is created, it should
+be saved securely. This backup ensures the vehicle can always be restored to
+its original state, regardless of modifications made later. This process is
+specifically applicable to Siemens MS43 ECUs.</p>
+
+<p class=MsoNormal>With the backup in place, you can begin flashing the ECU
+using the Ms4x Flasher. This tool updates the ECU firmware while maintaining
+the integrity of its sensitive data. Once the firmware is updated, the ECU can
+be modified using definition files, unlocking extensive tuning options.</p>
+
+<p class=MsoNormal>Examples of potential modifications include removing the EWS
+immobilizer system, deleting rear O2 sensors, performing manifold swaps,
+adjusting ignition timing, modifying rev limits, and fine-tuning throttle
+response. These adjustments allow for significant customization and optimization,
+tailored to specific performance goals. This module will provide further
+details on these tuning options and how they can enhance your vehicle’s
+capabilities.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Description of events:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Items needed:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Battery charger</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Copper wire (for ground)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Laptop </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Jmgarage</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Tunerpro</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Torx bits &amp; Allen bits to remove ECU</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal>The ECU on most BMW’s is located on the driver’s side
+located near the firewall under the hood. To remove the ECU cover remove 3
+Allen bits need to expose the ECU. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Before handling the ECU, it’s best to unplug the negative
+ground to the vehicles battery to prevent any shorts. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Carefully remove the ECU without tearing any wires from the
+wiring harness, then remove all the plugs from the back of the ECU. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Only 4 Torx bits lightly hold the ECU together, then remove
+the cover housing the mother board.</p>
+
+<p class=MsoNormal>Place the bottom of the ECU on the same ECU case and expose
+the C167 processor. </p>
+
+<p class=MsoNormal>Now we are ready to Plug in adapters pins x60001 and x60004
+from the wiring harness and begin the boot-mode process. </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=241
+height=321 id="Picture 13"
+src="tnz168-deleon_ProjectMilestone4_files/image001.jpg"
+alt="A close-up of a car engine&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i>Figure: ECU
+exposed and pins x60001 and x60004 connected</i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>&nbsp;</b></p>
+
+<p class=MsoNormal>Before we begin, we must power the vehicles’ battery, then
+use a battery charger to ensure the vehicle stays above 12V through out the
+read. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><img width=496
+height=372 id="Picture 11"
+src="tnz168-deleon_ProjectMilestone4_files/image002.jpg"
+alt="A car with a computer open&#10;&#10;Description automatically generated"></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i>Figure: Battery
+charger connected to power and ground.</i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i>&nbsp;</i></p>
+
+<p class=MsoNormal>Once we have power, we can now connect a copper wire long
+enough to reach a ground on the vehicle to the C167 processor.</p>
+
+<p class=MsoNormal>For this example, I connected the copper wire to the same
+ground being used by the battery charger, so I could use the clamp from the
+charger to ensure a secure ground. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The other end of the copper wire must have a strand small
+enough to touch the pin 104 of the processor. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=214
+height=285 id="Picture 15"
+src="tnz168-deleon_ProjectMilestone4_files/image003.jpg"
+alt="A car with a computer and a tablet&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><i>Figure: ECU
+exposed with copper wire ready to ground the C167 processor into boot-mode</i></p>
+
+<p class=MsoNormal><i>&nbsp;</i></p>
+
+<p class=MsoNormal>Now that we have everything set up properly, you will need a
+second person to help you power the vehicle and allow you to short pin 104.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Pin 104 is located 5 solders up on the processor, as shown
+pinpointed in the picture below. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt'><img width=482 height=487 id="Image 68"
+src="tnz168-deleon_ProjectMilestone4_files/image004.jpg"
+alt="A close-up of a circuit board&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Figure: pin 104 on
+the C167 processor</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal>Once you have the copper wire on pin 104, the vehicle ignition
+can be set to position 2, to allow power to the ECU. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Hold the copper wire on pin 104 for 10 seconds, then remove
+the wire while leaving the car running. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The vehicle should now be in boot-mode. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Using JMGarage, select the connect option. </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=524
+height=393 id="Picture 7"
+src="tnz168-deleon_ProjectMilestone4_files/image005.jpg"
+alt="A computer screen with a white and green border&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal style='text-indent:.5in'><i>Figure: successful connection
+using JMGarage</i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Now that we have a successful connection using boot-mode we
+can select ‘read’ to acquire a complete clone of the ECU data. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=354
+height=131 src="tnz168-deleon_ProjectMilestone4_files/image006.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>                                 Figure: Option to Read
+in JMGarage</i></p>
+
+<p class=MsoNormal><img width=580 height=435 id="Picture 5"
+src="tnz168-deleon_ProjectMilestone4_files/image007.jpg"
+alt="A computer screen with a white screen&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>Figure: Failed read attempt </i></p>
+
+<p class=MsoNormal><i>&nbsp;</i></p>
+
+<p class=MsoNormal>My first attempt I received an error early on during the
+read. The read shows the hex dump where the error occurred. </p>
+
+<p class=MsoNormal>The error shows “Error while read flash. Wrong echo answer”</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>After a couple of troubleshooting attempts and receiving the
+same error, I concluded that the problem was due to the latency of the K-DCAN
+cable. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>From previous reads using Ms4x flasher, the cable was set to
+a latency of 1ms. </p>
+
+<p class=MsoNormal>Stated on the Ms4x wiki for JMGarage, when doing a boot-mode
+flash, the cable must be set to 16ms. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Once this setting is changed in device management advanced
+settings, we can proceed to read the ECU correctly. </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=415 id="Picture 19"
+src="tnz168-deleon_ProjectMilestone4_files/image008.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>                                                 Figure:
+Successful read connection.              </i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Once the latency issue was corrected, a read was
+successfully completed. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=272
+height=131 id="Picture 23"
+src="tnz168-deleon_ProjectMilestone4_files/image009.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>                                           Figure: Option
+to save binary</i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Using the save option we can store this file in a safe
+space.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=574 height=158 id="Picture 21"
+src="tnz168-deleon_ProjectMilestone4_files/image010.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>Figure: Location for full read 512KB flash file</i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Now that we have a safe backup, we can use ms4x flasher to
+update the firmware and begin modifying with Tunerpro. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Download a fresh firmware from Ms4x wiki.</p>
+
+<p class=MsoNormal>Remember to select the correct version for your e46. In this
+example I am using a m54B30 US spec 3 series engines. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=488 height=127
+src="tnz168-deleon_ProjectMilestone4_files/image011.png"
+alt="A close up of text&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><img width=624 height=33
+src="tnz168-deleon_ProjectMilestone4_files/image012.png"></p>
+
+<p class=MsoNormal><i>Figure: </i><a
+href="https://www.ms4x.net/index.php?title=Firmware_Files"><i>https://www.ms4x.net/index.php?title=Firmware_Files</i></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Once we are ready with the new firmware version 0069, we can
+connect the vehicle to a battery charger and connect the K-DCAN cable to the
+laptop and set the ignition to position 2</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Now that we have an ODDII connection we can begin our flash</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Open Ms4xFlasher and select the option to load binary</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Select the freshly downloaded 0069 firmware update</p>
+
+<p class=MsoNormal><img border=0 width=558 height=353
+src="tnz168-deleon_ProjectMilestone4_files/image013.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>Figure: 0069 firmware update being loaded into Ms4x
+Flasher</i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Select full write</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Once the flash is complete, power off the vehicle and allow
+10 seconds before starting again. </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=624 height=651 src="tnz168-deleon_ProjectMilestone4_files/image014.png"></p>
+
+<p class=MsoNormal><i>Figure: successful Full Write flash of the 0069-firmware
+update binary. </i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>As stated in the Ms4x Flasher, to finalize the flashing
+procedure, turn the key off and wait 10 seconds then turn the key to position
+2.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Now that we have a working updated vehicle, we can store a
+full flash version of the .bin file with Ms4xFlasher and store it in a safe
+place. (separate from JMGarage flash)</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=446 height=472 src="tnz168-deleon_ProjectMilestone4_files/image015.png"
+alt="A screenshot of a computer program&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i>Figure: Full read
+using Ms4x Flasher of new 0069-firmware associated with my vehicles VIN</i></p>
+
+<p class=MsoNormal><img border=0 width=624 height=172
+src="tnz168-deleon_ProjectMilestone4_files/image016.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i>Figure: updated full read 512kb file created using Ms4x
+Flasher</i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i>&nbsp;</i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>*Note never flash a ms4x full flash using boot-mode with
+JMGarage. This will cause the boot header of the Ms4x .bin to override the full
+flash of JMgarage which includes sensitive ECU data such as vin numbers. Bootmode
+flashing is only needed when you want to virginize the ECU and re-adapt it to
+an EWS module, such as putting an ECU in a completely different car. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To begin tuning with TunerPro, we now can do a partial read
+with Ms4xFlasher and load it into Tunerpro with the correct definition file and
+patch list file. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>*The 0069-firmware update was necessary to be able to use
+the updated definition and patch list files.</p>
+
+<p class=MsoNormal>Tuner pro is a very powerful tool that allows the user to
+manipulate any data table that is stored in a vehicles ECU, all the way down to
+CAN bus byte values. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This means theoretically anything is possible when it comes
+to tuning your vehicle, so extreme caution should be taken when manipulating
+any data tables. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Ms4x Wiki is a great resource for guides on how to get a
+starting point in tuning your vehicle, gives examples for both tuner pro, as
+well as viewing the binaries in a hex editor.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To begin tuning in TunerPro we will need to have our
+definition files and patchlist files ready for use. </p>
+
+<p class=MsoNormal> </p>
+
+<p class=MsoNormal>The definition file is only used to translate the hex data
+dumped from the ECU into a human readable form. With the correct knowledge
+tuning can be done using a hex editor of your choice.</p>
+
+<p class=MsoNormal>For example, you can disable CRC16 checksum using a hex
+editor by </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>1. Set Word at 0x73FFE to 0xFFFF</p>
+
+<p class=MsoNormal>2. Set Byte at 0x6FFB0 to 0xA8</p>
+
+<p class=MsoNormal>3. Change the Byte in the table from 0x84 to 0x94</p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><img border=0
+width=176 height=261 src="tnz168-deleon_ProjectMilestone4_files/image017.png"
+alt="A screenshot of a white rectangular box with numbers&#10;&#10;Description automatically generated"></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Firmwre byte location</span></i></p>
+
+<p class=MsoNormal>Depending on your firmware version, the location of the
+bytes will be different. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In BMW ECU’s, checksums play a role in ensuring data
+integrity and system integrity, it allows the system to detect errors or
+unauthorized modifications. Disabling this checksum is desired by engine tuners
+whose goal is to push an engine to its maximum limits. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Now that we have an understanding, we can open Tunerpro and
+select our binary file.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=293 height=87 src="tnz168-deleon_ProjectMilestone4_files/image018.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Open Bin option</span></i></p>
+
+<p class=MsoNormal><img border=0 width=624 height=353
+src="tnz168-deleon_ProjectMilestone4_files/image019.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"><i><span
+style='font-size:10.0pt'>Figure: 512kb binary location</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>When selecting your bin files, it is important to know what
+you are attempting to modify. </p>
+
+<p class=MsoNormal>For this example, we will modify the EWS, so the 512kb file
+will be needed to modify and reflash the vehicle.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Removing the EWS system or the immobilizer can be useful in
+many ways. Lots of older BMW’s may have the EWS go out of sync, meaning that
+the car will no longer start because the ECU does not recognize the key’s
+transponder chip code which is no longer in the vehicles database. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>For an average driver, a problem like for an old daily
+driver may cause them to sell the car. You will need to find someone who can
+diagnose and repair the EWS module and pay them around $300 or take the vehicle
+to a BMW dealership that will charge anywhere from $1000- $2000.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In most cases, someone who is deleting the EWS is doing so
+because the vehicle is a track car, and minimal risk such as avoiding your
+vehicle not responding to your key, is crucial when spending hours on a
+racetrack.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Next select the XDF patchlist to easily patch out the
+immobilizer.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=404 height=108 src="tnz168-deleon_ProjectMilestone4_files/image020.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Open XDF</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=624 height=432 src="tnz168-deleon_ProjectMilestone4_files/image021.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: XDF Patchlist file</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=232 height=94 src="tnz168-deleon_ProjectMilestone4_files/image022.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>                                                Figure:
+Parameter Category option</span></i></p>
+
+<p class=MsoNormal>By default, it will be set to Parameter Type, view by
+Parameter Category to have a clear view of the folders. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=624 height=408 src="tnz168-deleon_ProjectMilestone4_files/image023.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Community patch list options</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To remove the immobilizer, we can see the Immobilizer bypass
+folder</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=255 height=72 src="tnz168-deleon_ProjectMilestone4_files/image024.png"
+alt="A close up of words&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal style='margin-left:1.5in'><i><span style='font-size:10.0pt'>          
+Figure: Immobilizer Bypass Folder</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=398 height=91 src="tnz168-deleon_ProjectMilestone4_files/image025.png"
+alt="A screenshot of a computer error&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>                             
+Figure: Immobilizer Bypass Patch</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=445 height=99 src="tnz168-deleon_ProjectMilestone4_files/image026.png"
+alt="A close-up of a computer error&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><i><span
+style='font-size:10.0pt'>Figure: Immobilizer Bypass DTC fix Patch</span></i></p>
+
+<p class=MsoNormal><img border=0 width=566 height=117
+src="tnz168-deleon_ProjectMilestone4_files/image027.png"
+alt="A screenshot of a computer error&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>Figure: Clearing
+Immobilizer Data</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>By hovering over the options, we can see a description of
+what the patch is doing. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To Disable the EWS we can patch the first and second option
+to bypass the immobilizer checks and fix the DTC 128 code that pops up when the
+immobilizer is bypassed. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The third option clears all immobilizer data related to the
+ECU essentially viginizing the ECU, which will allow you to repair a DME and
+resynchronize it with the EWS, in the case of it being out of sync, or a new
+DME is being installed in a vehicle. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To complete this process, you will patch the files using
+TunerPro, then flash the vehicle in Boot-mode using JMgarage, then resync the
+DME to the EWS using INPA, a straightforward process once set up.</p>
+
+<p class=MsoNormal><img border=0 width=311 height=194
+src="tnz168-deleon_ProjectMilestone4_files/image028.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>Figure: Apply Patch</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>We can select Apply Patch, then apply to complete the patch
+process in a desired table. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal> </p>
+
+<p class=MsoNormal><img border=0 width=624 height=189
+src="tnz168-deleon_ProjectMilestone4_files/image029.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>Figure: Patches applied</span></i></p>
+
+<p class=MsoNormal>Once complete, you can reselect the tables to confirm the
+Immobilizer has been patched successfully. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Now we can save the file and indicate the changes made for
+simplicity and save it in a desired location</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img border=0 width=624 height=384
+src="tnz168-deleon_ProjectMilestone4_files/image030.png"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>Figure: Save location</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>We now have successfully created a patched bin file for an
+EWS delete.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This file can now be loaded back into Ms4x Flasher and a
+full write can be done</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Cycle the power and wait 10 seconds, and your vehicle is now
+tuned with a EWS delete, meaning your ECU will no longer check for a signal
+from the EWS to start the vehicle.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>There are many more options in the community patch list that
+are very desirable from people in the tuning community, such as launch control,
+and Ignition cut limiter. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=388 height=110 src="tnz168-deleon_ProjectMilestone4_files/image031.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Launch Control Parameters</span></i></p>
+
+<p class=MsoNormal>Launch control can be controlled to limit the RPM limiter
+when the clutch is pressed. This will allow a vehicle to launch from a stand
+still and not spin the tires into a burnout. </p>
+
+<p class=MsoNormal>This is important in many race car applications. It also
+gives a cool limiter sound at a lower RPM.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=556 height=94 src="tnz168-deleon_ProjectMilestone4_files/image032.png"
+alt="A close-up of a text&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Ignition Cut Limiter description </span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal>Adjusting the Ignition Cut Limiter is a popular option in
+the tuning community because it gives the vehicles the pops and bangs that the
+kids love. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In a professional setting tuning the ignition cut limiter is
+important to control the RPM limit by temporarily disabling the ignition rather
+than fuel injection. This method in a racing application allows for quicker
+recovery and a more aggressive sound when the RPM limit is reached. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The unburnt fuel from the ignition cut is expelled into the
+exhaust where it can ignite and cause pops, bangs, and flames.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Using a perfected tune, you will have minimal pops and if
+your vehicle is set up properly, it will expel the excess fuel into the exhaust
+as flames, causing a very cool effect you normally see in movies. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Remember when tuning the ignition cut limiter it is
+extremely important to understand what you are doing. Doing this to a stock
+vehicle will cause you to damage your entire exhaust system with unburnt fuel
+being ignited into your catalytic convers. This will damage your entire engine
+and exhaust system as stated in the description. </p>
+
+<p class=MsoNormal>It is recommended to have new or upgraded ignition coils, as
+the ignition cut limiter tune will put more stress on the coils and center
+sprocket. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>An ideal setup would have a catless exhaust all the way
+through, preferably 3in diameter, secondary air pump delete since we are
+removing the catalytic converters, and post cat O2 sensor delete.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This will remove all restrictions in the stock exhaust
+system. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The patch list gives an option to Patch the ignition cut
+limiter implementing a basic ignition cut where the engine speed hard limiter
+changes the ignition coil to zero. This can be further modified using the
+definition file and following the guide on MS4x wiki. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To manually edit tuning parameters, we will load the partial
+read of the ECU from MS4x flasher with the xdf definition file downloaded
+instead of the patchlist file. </p>
+
+<p class=MsoNormal><img border=0 width=624 height=62
+src="tnz168-deleon_ProjectMilestone4_files/image033.png"></p>
+
+<p class=MsoNormal><img border=0 width=600 height=35
+src="tnz168-deleon_ProjectMilestone4_files/image034.png"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>Figure: TunerPro with
+partial read file and definition file</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Ignition cut can also be toggled using the AC button.
+Since most race cars don’t use the AC, you can set the fuel cut activation to
+occur when the AC is set to on or off. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This process can be manually adjusted to reach a desired
+outcome using TunerPro and editing your binary using a definition file. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This approach disables the trailing throttle fuel cut by
+raising the minimum engine speed threshold for trailing throttle fuel cut to an
+engine speed that the engine can't reach, this will produce continuous exhaust
+pops or flames when fine-tuned as soon as the throttle is lifted.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>As the MS43 has two separate tables for when the AC is on or
+off we can use that logic to for example only activate exhaust pops when the AC
+is on or off.</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><b>ip_n_min_puc__tco</b>&nbsp;- Minimum engine speed for
+     trailing throttle fuel cut activation with AC off</li>
+ <li class=MsoNormal><b>ip_n_min_accin_puc__tco</b>&nbsp;- Minimum engine speed
+     for trailing throttle fuel cut activation with AC on</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.5in'>&nbsp;</p>
+
+<p class=MsoNormal>To tune the intensity of the exhaust pops the following
+ignition tables can be used.</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><b>ip_iga_pu__n__tco</b>&nbsp;- Target ignition angle in
+     case of trailing throttle</li>
+ <li class=MsoNormal><b>ip_iga_puc__n__tco</b>&nbsp;- Target ignition angle in
+     case of trailing throttle fuel cut-off</li>
+ <li class=MsoNormal><b>ip_iga_accin_puc__n__tco</b>&nbsp;- Target ignition
+     angle in case of trailing throttle fuel cut-off with AC on</li>
+</ul>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=300 height=201 id="Picture 24"
+src="tnz168-deleon_ProjectMilestone4_files/image035.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Tunerpro example for a starting point in
+ignition angle tuning</span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>&nbsp;</span></i></p>
+
+<p class=MsoNormal>The fuel cuts can be even further modified by tuning the
+delay before activating the trailing throttle fuel cut in a specified gear. </p>
+
+<p class=MsoNormal>With this approach it's possible to achieve a set amount of
+pops before the trailing throttle fuel cut is activated.</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><b>c_t_puc_deacc_vs</b>&nbsp;- Delay before activating
+     trailing throttle fuel cut when car is stationary</li>
+ <li class=MsoNormal><b>ip_t_puc_deacc_1__n__maf_mmv</b>&nbsp;- Delay before
+     activating trailing throttle fuel cut. First gear</li>
+ <li class=MsoNormal><b>ip_t_puc_deacc_2__n__maf_mmv</b>&nbsp;- Delay before
+     activating trailing throttle fuel cut. Second gear</li>
+ <li class=MsoNormal><b>ip_t_puc_deacc_3__n__maf_mmv</b>&nbsp;- Delay before
+     activating trailing throttle fuel cut. Third gear</li>
+ <li class=MsoNormal><b>ip_t_puc_deacc_4__n__maf_mmv</b>&nbsp;- Delay before
+     activating trailing throttle fuel cut. Forth gear</li>
+ <li class=MsoNormal><b>ip_t_puc_deacc_5__n__maf_mmv</b>&nbsp;- Delay before
+     activating trailing throttle fuel cut. Fifth gear</li>
+</ul>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=342 height=130 id="Picture 25"
+src="tnz168-deleon_ProjectMilestone4_files/image036.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><i><span style='font-size:10.0pt'>                                    Figure:
+TunerPro example fir trailing fuel cut starting point</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>When removing the secondary air pump the ecu needs to be
+configured to ignore the removed sap equipment. To instruct the ecu that there
+is no secondary air pump installed set&nbsp;<b>c_conf_sap</b>&nbsp;to 1 and
+clear the &quot;learned variants&quot; adaptation in the ecu.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=205 height=164 src="tnz168-deleon_ProjectMilestone4_files/image037.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span
+style='font-size:10.0pt'>Figure: Secondary Air Pump delete option</span></i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The O2 sensor can be configured using the c_conf_cat
+function. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=469 height=142 id="Picture 1"
+src="tnz168-deleon_ProjectMilestone4_files/image038.png"></p>
+
+<p class=MsoNormal>                   Figure: O2 sensor configuration settings.
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>As we can see, to only use a single bank with a pre cat O2
+sensor we leave the value as 0</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Using this guide we now have full control over our BMW’s ECU
+data. Tools like JMGarage, MS4x Flasher, TunerPro, and INPA allow us to modify
+any data in our ECU. The process begins with creating a secure backup of the
+original ECU data in boot mode, ensuring a safe restoration point if
+modifications go awry. By flashing updated firmware and leveraging tools like
+TunerPro with proper definition and patch list files, enthusiasts can unlock
+and modify critical ECU parameters to achieve specific goals, such as disabling
+the EWS immobilizer, optimizing ignition timing, and deleting unnecessary
+sensors and pumps after modifications.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Advanced tuning options like ignition cut limiters, launch
+control, and checksum manipulation tuning allow for greater customization.
+However, these modifications require a solid understanding of ECU data tables
+and potential impacts on the vehicle's performance and longevity. For instance,
+implementing an ignition cut limiter can produce desirable effects like pops,
+bangs, and flames but can also strain engine components without proper
+supporting modifications, such as upgraded ignition coils and a catless exhaust
+system.</p>
+
+<p class=MsoNormal>Tuning processes like secondary air pump and O2 sensor
+delete streamline the system for track or race use while removing unnecessary
+restrictions that are meant to support the once installed catalytic converter
+system. These modifications not only enhance performance but also demonstrate
+the versatility of tools like TunerPro in translating and editing hex data for
+precise customization.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>While tuning can significantly elevate a vehicle’s
+capabilities, it is advised to proceed with caution as a simple mistake can
+cause lots of headaches, if a DME becomes bricked or an engine blows up. The
+MS4x Wiki and community resources provide valuable guidance for safe and
+effective modifications, making ECU tuning an exciting and rewarding process
+for those seeking to push their BMW’s performance boundaries. </p>
+
+<p class=MsoNormal> </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>References</b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>&nbsp;</b></p>
+
+<p class=MsoNormal><i>File:Siemens MS43 MS430069 Community Patchlist v2.9.2.xdf</i>.
+File:Siemens MS43 MS430069 Community Patchlist v2.9.2.xdf - MS4X Wiki. (n.d.).
+https://www.ms4x.net/index.php?title=File%3ASiemens_MS43_MS430069_Community_Patchlist_v2.9.2.xdf
+</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><i>Definition files</i>. Definition Files - MS4X Wiki.
+(n.d.). https://www.ms4x.net/index.php?title=Definition_Files </p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><a
+href="https://www.ms4x.net/index.php?title=File:Siemens_MS43_MS430069_Community_Patchlist_v2.9.2.xdf"></a> </p>
+
+<p class=MsoNormal> <i>Siemens MS43</i>. Siemens MS43 - MS4X Wiki. (n.d.).
+https://www.ms4x.net/index.php?title=Siemens_MS43 </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
